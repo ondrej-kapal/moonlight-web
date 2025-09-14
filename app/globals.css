@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom font example */
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('/fonts/MyCustomFont.woff2') format('woff2'),
+       url('/fonts/MyCustomFont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Use the font globally */
+body {
+  font-family: 'MyCustomFont', ui-sans-serif, system-ui, sans-serif;
+}
+
+html, body { scroll-behavior: smooth; }

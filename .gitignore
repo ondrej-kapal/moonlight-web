@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+
+# Virtual environment directories
+venv/
+.venv/
+env/
+
+# Environment variables file
+.env
+*.env
+wsgi.py
+
+# Flask debugging logs
+*.log
+*.pot
+
+# Deploy logs
+/var/log/
+
+# MacOs specific
+.DS_Store
+static/.DS_Store
+
+# VSCode specific
+.vscode/
