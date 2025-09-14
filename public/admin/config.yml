@@ -6,20 +6,19 @@ backend:
   repo: ondrej-kapal/moonlight-web
   branch: main
 
-media_folder: "public/uploads"
-public_folder: "/uploads"
-
 collections:
   - name: "portfolio"
     label: "Portfolio"
     folder: "content/portfolio"
     create: true
     slug: "{{slug}}"
-    summary: "{{title}} — {{date}}"
-    media_folder: "public/portfolio/{{slug}}"
-    public_folder: "/portfolio/{{slug}}"
+    path: "{{slug}}/index"          # content/portfolio/<slug>/index.md
+    media_folder: ""                # store uploads NEXT TO index.md (same folder)
+    public_folder: "/media/portfolio/{{slug}}"  # URL that the site will serve
+
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string", pattern: ["^[a-z0-9-]+$", "lowercase, numbers, hyphens"] }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Cover Image", name: "cover", widget: "image", required: false }
       - label: "Gallery"
