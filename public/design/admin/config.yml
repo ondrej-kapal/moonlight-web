@@ -1,0 +1,48 @@
+local_backend: true
+publish_mode: editorial_workflow
+
+backend:
+  name: github
+  repo: ondrej-kapal/moonlight-web
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "portfolio"
+    label: "Portfolio"
+    folder: "content/portfolio"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} — {{date}}"
+    media_folder: "public/portfolio/{{slug}}"
+    public_folder: "/portfolio/{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Cover Image", name: "cover", widget: "image", required: false }
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        required: false
+        field: { label: "Image", name: "image", widget: "image" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Description", name: "body", widget: "markdown" }
+      - { label: "Published", name: "published", widget: "boolean", default: true }
+
+  - name: "salon"
+    label: "Salon Info"
+    delete: false
+    files:
+      - label: "Salon Settings"
+        name: "settings"
+        file: "content/salon/settings.json"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Address", name: "address", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Instagram", name: "instagram", widget: "string", required: false }
+          - { label: "Opening Hours", name: "hours", widget: "text", required: false }
+          - { label: "Booking Link", name: "bookingLink", widget: "string", required: false }
